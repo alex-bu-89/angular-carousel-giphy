@@ -140,8 +140,6 @@ class HomeController {
         "caption": ""
       }
     ]
-
-    console.log(this.images);
   }
 
   // wait for bindings with hucks

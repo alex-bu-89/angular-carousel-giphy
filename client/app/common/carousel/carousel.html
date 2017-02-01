@@ -1,7 +1,12 @@
 <section class="carousel">
-  <ul class="slides">
-    <li class="slide" data-ref="{{$index}}" ng-repeat="image in $ctrl.images">
-      <img src="{{image.image_url}}" alt="">
-    </li>
-  </ul>
+  <figure class="carousel--current">
+    <div class="carousel--button carousel--button-left" ng-click="{{$ctrl.nextSlide()}}"></div>
+    <img data-ref="{{}}" src="{{$ctrl.currentImg.image.image_url}}" alt="">
+    <div class="carousel--button carousel--button-right"></div>
+  </figure>
+  <section class="carousel--controll">
+    <ul>
+      <li ng-repeat="image in $ctrl.images"><img src="{{image.fixed_height_small_still_url}}" alt=""></li>
+    </ul>
+  <section>
 </section>
