@@ -7,9 +7,6 @@
   *
     color: $lightTextColor
 
-  figure
-    display: block
-
   ul > li
     list-style-type: none
 
@@ -20,7 +17,22 @@
   overflow: hidden
   max-width: 500px
   position: relative
-  margin: auto
+  margin: 50px auto
+  background: #fff
+  padding: 10px 10px 5px 10px
+  -webkit-box-shadow: 0 0 15px 0 rgba(50,50,50,.5)
+  -moz-box-shadow: 0 0 15px 0 rgba(50,50,50,.5)
+  box-shadow: 0 0 15px 0 rgba(50,50,50,.5)
+  border-radius: 5px
+
+  figure
+    display: flex
+    align-items: center
+    justify-content: center
+    background: #f6f6f6
+    height: 300px
+    background-repeat: no-repeat
+    background-size: cover
 
   &--current
     padding: 0
@@ -33,17 +45,26 @@
       object-fit: cover
 
   &--controll
+    margin-top: 10px
+
     ul
       display: flex
       flex-direction: row
       flex-wrap: wrap
     li
-      padding: 5px
-
-    img
+      border: 5px solid #fff
       width: 90px
       height: 50px
-      object-fit: cover
+      background-repeat: no-repeat
+      background-size: cover
+
+      &.active
+        border: 5px solid #3498DB
+
+    // img
+    //   width: 90px
+    //   height: 50px
+    //   object-fit: cover
 
   &--button
     position: absolute

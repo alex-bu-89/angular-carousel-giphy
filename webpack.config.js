@@ -1,6 +1,8 @@
 var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 module.exports = {
   devtool: 'source-map',
@@ -9,7 +11,7 @@ module.exports = {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
        { test: /\.html$/, loader: 'raw' },
-       { test: /\.(scss|sass)$/, loader: 'style!css!sass' },
+       { test: /\.(scss|sass)$/, loader: ExtractTextPlugin.extract("style","css!sass")},
        { test: /\.css$/, loader: 'style!css' }
     ]
   },
@@ -30,6 +32,10 @@ module.exports = {
       minChunks: function (module, count) {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
+    }),
+
+    new ExtractTextPlugin('app.css', {
+        allowChunks: true
     })
   ]
 };

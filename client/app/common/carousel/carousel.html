@@ -1,12 +1,17 @@
 <section class="carousel">
-  <figure class="carousel--current">
-    <div class="carousel--button carousel--button-left" ng-click="{{$ctrl.nextSlide()}}"></div>
-    <img data-ref="{{}}" src="{{$ctrl.currentImg.image.image_url}}" alt="">
-    <div class="carousel--button carousel--button-right"></div>
+  <figure ng-style="{'background-image':'url({{$ctrl.currentImg.image.image_url}})'}"
+          class="carousel--current">
+    <div class="carousel--button carousel--button-left" ng-click="$ctrl.previousSlide()"></div>
+    <!-- <img src="{{$ctrl.currentImg.image.image_url}}" alt=""> -->
+    <div class="carousel--button carousel--button-right" ng-click="$ctrl.nextSlide()"></div>
   </figure>
   <section class="carousel--controll">
     <ul>
-      <li ng-repeat="image in $ctrl.images"><img src="{{image.fixed_height_small_still_url}}" alt=""></li>
+      <li ng-class="$ctrl.isActive({{$index}}) ? 'active' : ''"
+          ng-style="{'background-image':'url({{image.fixed_height_small_still_url}})'}"
+          ng-click="$ctrl.setSlide($index)"
+          ng-repeat="image in $ctrl.images">
+      </li>
     </ul>
   <section>
 </section>
