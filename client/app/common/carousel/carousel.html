@@ -1,9 +1,19 @@
-<h1>Simple giphy carousel</h1>
+<section class="form">
+  <h1>Simple giphy carousel</h1>
+  <form>
+    <span>Number of gifs</span>
+    <input ng-model="$ctrl.numberOfSlides" id="intNumber" type="number" value={{$ctrl.numberOfSlides}} min="1" max="10" />
+    <button ng-click="$ctrl.loadImages()">Load</button>
+    <span>(max gifs: {{$ctrl.maxSlides}})</span>
+  </form>
+</section>
 <section class="carousel">
-  <figure ng-style="{'background-image':'url(' + $ctrl.currentImg.image.image_url + ')'}"
-          class="carousel--current">
+  <figure class="carousel--current">
     <div class="carousel--button carousel--button-left" ng-click="$ctrl.previousSlide()"></div>
-    <!-- <img src="{{$ctrl.currentImg.image.image_url}}" alt=""> -->
+    <div  ng-repeat="image in $ctrl.images"
+          class="carousel--item"
+          ng-style="{'background-image':'url(' + image.image_url + ')'}"
+          ng-class="$ctrl.isActive({{$index}}) ? 'active' : ''"></div>
     <div class="carousel--button carousel--button-right" ng-click="$ctrl.nextSlide()"></div>
   </figure>
   <section class="carousel--controll">

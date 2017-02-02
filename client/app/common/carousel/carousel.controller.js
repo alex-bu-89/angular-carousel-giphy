@@ -1,15 +1,20 @@
+const MAX_SLIDES = 10;
+
 /**
  * Simple carousel component
  */
+/* @ngInject */
 class CarouselController {
 
-  "ngInject";
-  constructor() {
+  constructor(GiphyService) {
+    this.GiphyService = GiphyService
     this.currentImg = {
       index: null,
       image: null
     };
     this.height = 0
+    this.maxSlides = MAX_SLIDES;
+    console.log(GiphyService);
   }
 
   /**
@@ -67,6 +72,21 @@ class CarouselController {
     } else {
       return false
     }
+  }
+
+  /**
+   *
+   */
+  loadImages() {
+    if (this.numberOfSlides > MAX_SLIDES || this.numberOfSlides === undefined) {
+      this.numberOfSlides = MAX_SLIDES
+    }
+
+    console.log('loading ' + this.numberOfSlides + ' gifs');
+    this.GiphyService.getGifs(this.numberOfSlides).then((images) => {
+      this.images = images;
+      this.init();
+    })
   }
 
   init() {

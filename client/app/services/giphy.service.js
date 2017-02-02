@@ -35,6 +35,10 @@ class GiphyService {
    * @return {Promise}
    */
   getGifs(num = 5){
+
+    // empty array on start
+    this.promises = [];
+    
     for(let i = 0; i < num; i++) {
       this.promises.push(this.getRandomGify());
     }

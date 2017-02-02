@@ -1,8 +1,5 @@
 class HomeController {
-  /*@ngInject*/
-  constructor() {
-    this.name = 'home';
-  }
+  constructor() { }
 }
 
 export default HomeController;
