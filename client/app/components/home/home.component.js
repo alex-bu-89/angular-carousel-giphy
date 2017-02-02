@@ -5,7 +5,7 @@ import './home.sass';
 let homeComponent = {
   restrict: 'E',
   bindings: {
-    // images: '=' // bind images from resolver
+    images: '=' // bind images from resolver
   },
   template,
   controller

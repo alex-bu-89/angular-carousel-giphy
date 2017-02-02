@@ -16,9 +16,9 @@ let homeModule = angular.module('home', [
       url: '/',
       resolve: {
         // resolve images from GiphyService
-        // images: (GiphyService) => {
-        //   return GiphyService.getGifs();
-        // }
+        images: (GiphyService) => {
+          return GiphyService.getGifs();
+        }
       },
       component: 'home',
     });

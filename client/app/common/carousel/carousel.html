@@ -1,5 +1,6 @@
+<h1>Simple giphy carousel</h1>
 <section class="carousel">
-  <figure ng-style="{'background-image':'url({{$ctrl.currentImg.image.image_url}})'}"
+  <figure ng-style="{'background-image':'url(' + $ctrl.currentImg.image.image_url + ')'}"
           class="carousel--current">
     <div class="carousel--button carousel--button-left" ng-click="$ctrl.previousSlide()"></div>
     <!-- <img src="{{$ctrl.currentImg.image.image_url}}" alt=""> -->

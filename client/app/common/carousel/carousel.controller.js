@@ -1,3 +1,6 @@
+/**
+ * Simple carousel component
+ */
 class CarouselController {
 
   "ngInject";
@@ -9,6 +12,9 @@ class CarouselController {
     this.height = 0
   }
 
+  /**
+   * Run component when gifs had come
+   */
   $onInit() {
     if (this.images.length === 0) {
       throw new Error('Carousel does not have images');
@@ -25,17 +31,13 @@ class CarouselController {
     if (!index in this.images) {
       throw new Error('Can not set current image, index not exist in image array');
     }
-
     this.currentImg.index = index;
     this.currentImg.image = this.images[index];
-
-    console.log(this.currentImg);
   }
   /**
-   *
+   * Change to next slide
    */
   nextSlide() {
-    console.log('next slide');
     let oldIndex = this.currentImg.index + 1;
     if(this.images[oldIndex] == undefined) {
       oldIndex = 0;
@@ -45,10 +47,9 @@ class CarouselController {
   }
 
   /**
-   *
+   * Change to previous slide
    */
   previousSlide() {
-    console.log('previous slide');
     let oldIndex = this.currentImg.index - 1;
     if(this.images[oldIndex] == undefined) {
       oldIndex = this.images.length - 1;
@@ -57,23 +58,11 @@ class CarouselController {
   }
 
   /**
-   *
-   */
-  setHeight() {
-    const height = Math.max.apply(
-      Math, this.images.map((image) => {
-        return image.image_height;
-      })
-    )
-    this.height = height
-  }
-
-  /**
-   * 
+   * Is slide active
+   * @param {Integer} index
    */
   isActive(index) {
     if(this.currentImg.index === index) {
-      console.log(index);
       return true;
     } else {
       return false
@@ -82,7 +71,6 @@ class CarouselController {
 
   init() {
     this.numberOfSlides = this.images.length;
-    this.setHeight()
     this.setSlide(0);
     console.log(this.images);
   }
