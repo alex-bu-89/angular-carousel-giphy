@@ -75,7 +75,7 @@ class CarouselController {
   }
 
   /**
-   *
+   * Load gyfs from server
    */
   loadImages() {
     if (this.numberOfSlides > MAX_SLIDES || this.numberOfSlides === undefined) {
@@ -83,12 +83,16 @@ class CarouselController {
     }
 
     console.log('loading ' + this.numberOfSlides + ' gifs');
-    this.GiphyService.getGifs(this.numberOfSlides).then((images) => {
-      this.images = images;
-      this.init();
-    })
+    this.GiphyService.getGifs(this.numberOfSlides)
+      .then((images) => {
+        this.images = images;
+        this.init();
+      })
   }
 
+  /**
+   * Init function
+   */
   init() {
     this.numberOfSlides = this.images.length;
     this.setSlide(0);
