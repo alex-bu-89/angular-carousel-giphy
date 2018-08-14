@@ -1,0 +1,31 @@
+{
+  "name": "react-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-serve --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/polyfill": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-merge": "^4.1.4",
+    "webpack-serve": "^2.0.2"
+  }
+}
