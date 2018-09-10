@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const commonPaths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const commonPaths = require('./paths');
 
 module.exports = {
   entry: commonPaths.entryPath,
