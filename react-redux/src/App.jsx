@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { hot } from 'react-hot-loader';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -7,9 +7,17 @@ class App extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    console.log('------>', this);
+  }
+
   render() {
     return 'hello world';
   }
 }
 
-export default hot(module)(App);
+const mapStateToProps = state => ({
+  gifs: state.giphyapi.gifs,
+});
+
+export default connect(mapStateToProps)(App);
