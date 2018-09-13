@@ -1,4 +1,4 @@
-import { LOAD_GIFS } from '../actions/gifs';
+import { LOAD_GIFS } from '../actions/giphyapi';
 
 const initState = {
   gifs: [],

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import giphyapi from './gifs';
+import giphyapi from './giphyapi';
 
 const rootReducer = combineReducers({
   giphyapi,
