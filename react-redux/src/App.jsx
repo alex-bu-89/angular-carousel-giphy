@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
+import { connect } from 'react-redux';
 import Carousel from './components/Carousel';
+import { loadGifs } from './actions/giphyapi';
 
 class App extends Component {
   constructor(props) {
@@ -8,9 +10,17 @@ class App extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    this.props.dispatch(loadGifs());
+  }
+
   render() {
     return <Carousel />;
   }
 }
 
-export default hot(module)(App);
+const mapStateToProps = state => ({
+  gifs: state.giphyapi.gifs,
+});
+
+export default hot(module)(connect(mapStateToProps)(App));
