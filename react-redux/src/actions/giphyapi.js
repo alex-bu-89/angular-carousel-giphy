@@ -1,7 +1,11 @@
-export const LOAD_GIFS = 'LOAD_GIFS';
+export const LOAD_GIFS = 'LOAD_GIFS_REQUEST';
 
-export function loadGifs() {
-  return {
-    type: LOAD_GIFS,
+export function loadGifsRequest() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch({
+        type: LOAD_GIFS,
+      });
+    }, 1000);
   };
 }
