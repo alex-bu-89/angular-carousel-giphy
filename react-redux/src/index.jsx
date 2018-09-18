@@ -8,7 +8,7 @@ import reducer from './reducers';
 
 const store = createStore(
   reducer,
-  applyMiddleware(thunk),
+  applyMiddleware(thunk.defaul),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // eslint-disable-line
 );
 
