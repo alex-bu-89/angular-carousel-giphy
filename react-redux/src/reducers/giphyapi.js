@@ -1,4 +1,4 @@
-import { LOAD_GIFS } from '../actions/giphyapi';
+import { LOAD_GIFS_REQUEST } from '../actions/giphyapi';
 
 const initState = {
   gifs: [],
@@ -6,9 +6,10 @@ const initState = {
 
 export default function giphyapi(state = initState, action) {
   switch (action.type) {
-    case LOAD_GIFS:
+    case LOAD_GIFS_REQUEST:
+      console.log('------>');
       return {
-        gifs: [{ foo: 'bar' }],
+        gifs: action.data,
       };
     default:
       return state;

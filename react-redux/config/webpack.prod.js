@@ -1,13 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const commonPaths = require('./paths');
+const config = require('./config');
 
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    filename: `${commonPaths.jsFolder}/[name].[hash].js`,
-    path: commonPaths.outputPath,
+    filename: `${config.jsFolder}/[name].[hash].js`,
+    path: config.outputPath,
     chunkFilename: '[name].[chunkhash].js',
   },
   module: {
@@ -30,11 +30,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([commonPaths.outputPath.split('/').pop()], {
-      root: commonPaths.root,
+    new CleanWebpackPlugin([config.outputPath.split('/').pop()], {
+      root: config.root,
     }),
     new MiniCssExtractPlugin({
-      filename: `${commonPaths.cssFolder}/[name].css`,
+      filename: `${config.cssFolder}/[name].css`,
       chunkFilename: '[id].css',
     }),
   ],

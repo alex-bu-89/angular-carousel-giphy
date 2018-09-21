@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const commonPaths = require('./paths');
+const config = require('./config');
 
 module.exports = {
-  entry: commonPaths.entryPath,
+  entry: config.entryPath,
   module: {
     rules: [
       {
@@ -26,7 +26,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: commonPaths.imagesFolder,
+              outputPath: config.imagesFolder,
             },
           },
         ],
@@ -37,7 +37,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: commonPaths.fontsFolder,
+              outputPath: config.fontsFolder,
             },
           },
         ],
@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
-      template: commonPaths.templatePath,
+      template: config.templatePath,
     }),
   ],
 };

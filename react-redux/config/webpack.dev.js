@@ -1,11 +1,11 @@
-const commonPaths = require('./paths');
+const config = require('./config');
 
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
   output: {
     filename: '[name].js',
-    path: commonPaths.outputPath,
+    path: config.outputPath,
     chunkFilename: '[name].js',
   },
   devServer: {
@@ -27,7 +27,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              includePaths: commonPaths.imagesFolder,
+              includePaths: config.imagesFolder,
             },
           },
         ],

@@ -9,4 +9,7 @@ module.exports = {
   fontsFolder: 'fonts',
   cssFolder: 'css',
   jsFolder: 'js',
+  giphyApi: {
+    host: 'http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=3',
+  },
 };
