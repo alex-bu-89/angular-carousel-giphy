@@ -26,7 +26,8 @@ class App extends Component {
   }
 
   render() {
-    return <Carousel />;
+    const { gifs } = this.props;
+    return <Carousel images={gifs} />;
   }
 }
 
