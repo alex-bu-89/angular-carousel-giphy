@@ -27,7 +27,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              includePaths: config.imagesFolder,
             },
           },
         ],

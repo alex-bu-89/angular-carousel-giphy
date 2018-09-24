@@ -1,4 +1,8 @@
+import './Carousel.scss';
+
 import React, { Component } from 'react';
+import { get } from 'lodash';
+
 
 class Carousel extends Component {
   constructor(props) {
@@ -6,22 +10,24 @@ class Carousel extends Component {
     this.state = {};
   }
 
-  render() {
+  renderItems() {
     const { items } = this.props;
 
-    return (
-      <section>
-        {
-          items.forEach((item, index) => {
-            const id = `index${index}`;
-            console.log('------------', JSON.stringify(item.images.fixed_width.url, null, 4));
-            if (item && item.images && item.images.fixed_width && item.images.fixed_width.url) {
-              return (<img key={id} src={item.images.fixed_width.url} alt="slider" />);
-            }
+    return items.map((item, index) => {
+      const id = `index${index}`;
 
-            return 'No images';
-          })
-        }
+      if (!get(item, 'images.fixed_width.url')) {
+        console.error('images.fixed_width.url not found in ', item);
+      }
+
+      return <img key={id} src={item.images.fixed_width.url} alt='slider' />;
+    });
+  }
+
+  render() {
+    return (
+      <section className='ab-carousel'>
+        { this.renderItems() }
       </section>
     );
   }
