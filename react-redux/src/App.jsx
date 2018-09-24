@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
-import Carousel from './components/Carousel';
+import Carousel from './components/Carousel/Carousel';
 import { loadGifsRequest } from './actions/giphyapi';
 
 const mapDispatchToProps = dispatch => ({
@@ -27,7 +27,7 @@ class App extends Component {
 
   render() {
     const { gifs } = this.props;
-    return <Carousel images={gifs} />;
+    return <Carousel items={gifs} />;
   }
 }
 
