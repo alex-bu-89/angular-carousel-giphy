@@ -1,8 +1,5 @@
 import './Carousel.scss';
-
 import React, { Component } from 'react';
-import { get } from 'lodash';
-
 
 class Carousel extends Component {
   constructor(props) {
@@ -10,24 +7,28 @@ class Carousel extends Component {
     this.state = {};
   }
 
-  renderItems() {
-    const { items } = this.props;
+  /**
+   * Get default styles for slides
+   */
+  getSlidesStyles() {
+    const { children } = this.props;
 
-    return items.map((item, index) => {
-      const id = `index${index}`;
-
-      if (!get(item, 'images.fixed_width.url')) {
-        console.error('images.fixed_width.url not found in ', item);
-      }
-
-      return <img key={id} src={item.images.fixed_width.url} alt='slider' />;
-    });
+    return {
+      width: `${100 * children.length}%`,
+      // transform: `translateX(${-1 * index * (100 / children.length)}%)`,
+    };
   }
 
+  /**
+   * Render component
+   */
   render() {
+    const { children } = this.props;
+    const styles = this.getSlidesStyles();
+
     return (
-      <section className='ab-carousel'>
-        { this.renderItems() }
+      <section style={styles} className='ab-carousel'>
+        {children}
       </section>
     );
   }
