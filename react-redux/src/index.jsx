@@ -8,12 +8,16 @@ import thunk from 'redux-thunk';
 import App from './App';
 import reducer from './reducers';
 
+import 'bootstrap/scss/bootstrap.scss';
+
 const middleware = [thunk];
 
+// add redux logger
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
 
+// create redux store
 const store = createStore(
   reducer,
   compose(
@@ -22,6 +26,7 @@ const store = createStore(
   ),
 );
 
+// render app
 ReactDOM.render(
   <Provider store={store}>
     <App />
