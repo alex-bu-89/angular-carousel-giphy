@@ -1,19 +1,11 @@
+import './App.scss';
+
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 import Carousel from './components/Carousel/Carousel';
 import { loadGifsRequest } from './actions/giphyapi';
-
-const mapDispatchToProps = dispatch => ({
-  loadGifs: () => {
-    dispatch(loadGifsRequest());
-  },
-});
-
-const mapStateToProps = state => ({
-  gifs: state.giphyapi.gifs,
-});
 
 class App extends Component {
   constructor(props) {
@@ -26,23 +18,46 @@ class App extends Component {
     loadGifs();
   }
 
-  render() {
+  renderCarouselItems() {
     const { gifs } = this.props;
+
+    return gifs.map((item, index) => {
+      const id = `child${index}`;
+
+      if (!get(item, 'images.fixed_width.url')) {
+        throw new Error(`images.fixed_width.url not found in ${item}`);
+      }
+
+      return (
+        <div className="ab-carousel--card" key={id}>
+          <img src={item.images.fixed_width.url} alt='slider' />
+        </div>
+      );
+    });
+  }
+
+  render() {
     return (
-      <Carousel>
-        {gifs.map((item, index) => {
-          const id = `child${index}`;
-
-          if (!get(item, 'images.fixed_width.url')) {
-            console.error('images.fixed_width.url not found in ', item);
-          }
-
-          return <img key={id} src={item.images.fixed_width.url} alt='slider' />;
-        })}
-      </Carousel>
+      <div className='container d-flex h-100'>
+        <div className='row justify-content-center align-self-center w-100'>
+          <Carousel>
+            { this.renderCarouselItems() }
+          </Carousel>
+        </div>
+      </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  loadGifs: () => {
+    dispatch(loadGifsRequest());
+  },
+});
+
+const mapStateToProps = state => ({
+  gifs: state.giphyapi.gifs,
+});
 
 export default hot(module)(
   connect(

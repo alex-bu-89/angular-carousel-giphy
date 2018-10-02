@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+}
+
+#app {
+  background: #69A581;
+  min-height: 100%;
+  height: 100%;
+
+  .ab-carousel--card {
+    background: #fff;
+    padding: 15px;
+    margin: 15px;
+  }
+}
