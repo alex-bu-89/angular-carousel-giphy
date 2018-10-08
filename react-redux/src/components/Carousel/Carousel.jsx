@@ -11,11 +11,11 @@ class Carousel extends Component {
    * Get default styles for slides
    */
   getSlidesStyles() {
-    // const { children } = this.props;
+    const { children } = this.props;
 
     return {
-      // width: `${100 * children.length}%`,
-      // transform: `translateX(${-1 * index * (100 / children.length)}%)`,
+      width: `${100 * children.length}%`,
+      //transform: `translateX(${-1 * index * (100 / children.length)}%)`,
     };
   }
 
@@ -27,7 +27,7 @@ class Carousel extends Component {
     const styles = this.getSlidesStyles();
 
     return (
-      <section style={styles} className='ab-carousel d-flex justify-content-center'>
+      <section style={styles} className='ab-carousel'>
         {children}
       </section>
     );

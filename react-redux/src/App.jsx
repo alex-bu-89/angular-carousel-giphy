@@ -38,8 +38,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container d-flex h-100'>
-        <div className='row justify-content-center align-self-center w-100'>
+      <div className='container h-100'>
+        <div className='row'>
           <Carousel>
             { this.renderCarouselItems() }
           </Carousel>

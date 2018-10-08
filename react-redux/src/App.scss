@@ -1,15 +1,18 @@
+$color-primary: #69A581;
+$color-background: #ffffff;
+
 html, body {
   height: 100%;
 }
 
 #app {
-  background: #69A581;
+  background: $color-primary;
   min-height: 100%;
   height: 100%;
 
   .ab-carousel--card {
-    background: #fff;
+    background: $color-background;
     padding: 15px;
-    margin: 15px;
+    margin: 10px;
   }
 }
