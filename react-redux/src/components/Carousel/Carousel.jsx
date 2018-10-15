@@ -15,7 +15,7 @@ class Carousel extends Component {
 
     return {
       width: `${100 * children.length}%`,
-      //transform: `translateX(${-1 * index * (100 / children.length)}%)`,
+      // transform: `translateX(${-1 * index * (100 / children.length)}%)`,
     };
   }
 
