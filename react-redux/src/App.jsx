@@ -27,10 +27,10 @@ class App extends Component {
       if (!get(item, 'images.fixed_width.url')) {
         throw new Error(`images.fixed_width.url not found in ${item}`);
       }
-      
-      // @TODO move to component? 
+
+      // @TODO move to component?
       return (
-        <div className="ab-carousel--card" key={id}>
+        <div className='ab-carousel--card' key={id}>
           <img src={item.images.fixed_width.url} alt='slider' />
         </div>
       );

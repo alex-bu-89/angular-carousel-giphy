@@ -27,8 +27,12 @@ class Carousel extends Component {
     const styles = this.getSlidesStyles();
 
     return (
-      <section style={styles} className='ab-carousel'>
-        {children}
+      <section className='ab-carousel'>
+        <div className='ab-carousel--wrapper'>
+          <div style={styles} className='ab-carousel--inner'>
+            {children}
+          </div>
+        </div>
       </section>
     );
   }

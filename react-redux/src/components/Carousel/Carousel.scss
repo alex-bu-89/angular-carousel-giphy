@@ -1,4 +1,20 @@
 .ab-carousel {
+  width: 100%;
+
+  &--wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &--inner {
     display: flex;
     overflow: hidden;
+    width: 100%;
+  }
+
+  &--card {
+    width: 100%;
+  }
 }
