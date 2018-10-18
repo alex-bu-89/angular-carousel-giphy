@@ -29,9 +29,11 @@ class App extends Component {
       }
 
       // @TODO move to component?
+      //
+
       return (
         <div className='ab-carousel--card' key={id}>
-          <img src={item.images.fixed_width.url} alt='slider' />
+          <img src={item.images.original.url} alt='slider' />
         </div>
       );
     });
