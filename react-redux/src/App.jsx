@@ -41,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container h-100'>
+      <div className='container'>
         <div className='row'>
           <Carousel>
             { this.renderCarouselItems() }
