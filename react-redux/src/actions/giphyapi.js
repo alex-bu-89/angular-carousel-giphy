@@ -1,4 +1,4 @@
-// import config from '../../config/config';
+import config from '../../config/config';
 
 export const LOAD_GIFS_REQUEST = 'LOAD_GIFS_REQUEST';
 
