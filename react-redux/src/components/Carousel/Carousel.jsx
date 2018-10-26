@@ -19,6 +19,15 @@ class Carousel extends Component {
     };
   }
 
+  loadControlButtons() {
+    return (
+      <div className='ab-carousel--controlls'>
+        <span className='ab-carousel--controlls__left' />
+        <span className='ab-carousel--controlls__right' />
+      </div>
+    );
+  }
+
   /**
    * Render component
    */
@@ -30,8 +39,9 @@ class Carousel extends Component {
       <section className='ab-carousel'>
         <div className='ab-carousel--wrapper'>
           <div style={styles} className='ab-carousel--inner'>
-            {children}
+            { children }
           </div>
+          { this.loadControlButtons() }
         </div>
       </section>
     );

@@ -1,5 +1,6 @@
 .ab-carousel {
   width: 100%;
+  position: relative;
 
   &--wrapper {
     display: flex;
@@ -18,5 +19,30 @@
 
   &--card {
     width: 100%;
+  }
+
+  &--controlls {
+    &__left,
+    &__right {
+      position: absolute;
+      top: 0px;
+      width: 50px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.4); // @TODO remove - debug
+    }
+
+    &__left:hover,
+    &__righ:hover {
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+    }
+
+    &__left {
+      left: 0px;
+    }
+
+    &__right {
+      right: 0px;
+    }
   }
 }
