@@ -1,11 +1,12 @@
-import './App.scss';
-
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
+
 import Carousel from './components/Carousel/Carousel';
 import { loadGifsRequest } from './actions/giphyapi';
+
+import './App.scss';
 
 class App extends Component {
   constructor(props) {

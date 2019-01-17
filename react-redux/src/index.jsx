@@ -5,10 +5,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
+
 import App from './App';
 import reducer from './reducers';
-
-import 'bootstrap/scss/bootstrap.scss';
 
 const middleware = [thunk];
 
