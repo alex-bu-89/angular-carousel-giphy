@@ -35,11 +35,23 @@ class Carousel extends Component {
     const { children } = this.props;
     const styles = this.getSlidesStyles();
 
+    console.log(children);
+
     return (
       <section className='ab-carousel'>
         <div className='ab-carousel--wrapper'>
           <div style={styles} className='ab-carousel--inner'>
-            { children }
+            {
+              // React.Children.map(children, child => (
+              //   React.cloneElement(child, { style: { ...child.props.style, opacity: 0.5 } })
+              // ))
+
+              children.map((child, index) => {
+                const id = `child${index}`;
+
+                return <div className='ab-carousel--card' key={id}>{child}</div>;
+              })
+            }
           </div>
           { this.loadControlButtons() }
         </div>

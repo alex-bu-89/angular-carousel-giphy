@@ -22,9 +22,7 @@ class App extends Component {
   renderCarouselItems() {
     const { gifs } = this.props;
 
-    return gifs.map((item, index) => {
-      const id = `child${index}`;
-
+    return gifs.map((item) => {
       if (!get(item, 'images.fixed_width.url')) {
         throw new Error(`images.fixed_width.url not found in ${item}`);
       }
@@ -32,9 +30,7 @@ class App extends Component {
       // @TODO move to component?
 
       return (
-        <div className='ab-carousel--card' key={id}>
-          <img src={item.images.original.url} alt='slider' />
-        </div>
+        <img src={item.images.original.url} alt='slider' />
       );
     });
   }
