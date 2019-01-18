@@ -30,7 +30,6 @@ class App extends Component {
       }
 
       // @TODO move to component?
-      //
 
       return (
         <div className='ab-carousel--card' key={id}>
