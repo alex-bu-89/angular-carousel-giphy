@@ -42,10 +42,6 @@ class Carousel extends Component {
         <div className='ab-carousel--wrapper'>
           <div style={styles} className='ab-carousel--inner'>
             {
-              // React.Children.map(children, child => (
-              //   React.cloneElement(child, { style: { ...child.props.style, opacity: 0.5 } })
-              // ))
-
               children.map((child, index) => {
                 const id = `child${index}`;
 
