@@ -34,9 +34,7 @@ class Carousel extends Component {
   render() {
     const { children } = this.props;
     const styles = this.getSlidesStyles();
-
-    console.log(children);
-
+    
     return (
       <section className='ab-carousel'>
         <div className='ab-carousel--wrapper'>
