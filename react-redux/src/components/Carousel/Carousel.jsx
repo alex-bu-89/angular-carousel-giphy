@@ -4,7 +4,9 @@ import './Carousel.scss';
 class Carousel extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      currentIndex: 0,
+    };
   }
 
   /**
@@ -12,10 +14,11 @@ class Carousel extends Component {
    */
   getSlidesStyles() {
     const { children } = this.props;
+    const { currentIndex } = this.state;
 
     return {
       width: `${100 * children.length}%`,
-      // transform: `translateX(${-1 * index * (100 / children.length)}%)`,
+      transform: `translateX(${-1 * currentIndex * (100 / children.length)}%)`,
     };
   }
 
